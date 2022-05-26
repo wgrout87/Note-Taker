@@ -1,12 +1,17 @@
-{
-    "notesArray": [
-        {
-            "title": "Test Title",
-            "text": "Test text"
-        },
-        {
-            "title": "Post Note",
-            "text": "A test to see if notes will post"
-        }
-    ]
-}
+[
+    {
+        "title": "Test Title",
+        "text": "Test text",
+        "id": "0"
+    },
+    {
+        "title": "Post Note",
+        "text": "A test to see if notes will post",
+        "id": "1"
+    },
+    {
+        "title": "Will it save properly?",
+        "text": "Let's find out.",
+        "id": "2"
+    }
+]

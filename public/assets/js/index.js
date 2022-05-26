@@ -1,9 +1,11 @@
+// Sets up some variables that will be given values later
 let noteTitle;
 let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
 
+// If the Notes page is displayed, these variables will be given DOM references
 if (window.location.pathname === '/notes') {
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
@@ -12,12 +14,12 @@ if (window.location.pathname === '/notes') {
   noteList = document.querySelectorAll('.list-container .list-group');
 }
 
-// Show an element
+// Show an element - used with the save button
 const show = (elem) => {
   elem.style.display = 'inline';
 };
 
-// Hide an element
+// Hide an element - used with the save button
 const hide = (elem) => {
   elem.style.display = 'none';
 };
@@ -108,6 +110,7 @@ const handleNewNoteView = (e) => {
   renderActiveNote();
 };
 
+// The save button will only display if a note has both a title and text - it's a sort of validation so that the API routes won't need to validate input
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
