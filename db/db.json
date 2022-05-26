@@ -1,17 +1,22 @@
 [
     {
-        "title": "Test Title",
-        "text": "Test text",
+        "title": "New note",
+        "text": "for deletion",
         "id": "0"
     },
     {
-        "title": "Post Note",
-        "text": "A test to see if notes will post",
+        "title": "Delete notes",
+        "text": "why do they persist",
         "id": "1"
     },
     {
-        "title": "Will it save properly?",
-        "text": "Let's find out.",
+        "title": "asdfas",
+        "text": "zxcvzxcv",
         "id": "2"
+    },
+    {
+        "title": "erqwer",
+        "text": "vzxcvzxcv",
+        "id": "3"
     }
 ]
