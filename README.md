@@ -8,6 +8,7 @@ This repository contains the front and back end code for a note taking applicati
 ## Links
 
 [Code repository](https://github.com/wgrout87/Note-Taker)
+
 [Deployed website](https://still-cliffs-01909.herokuapp.com/notes)
 
 ## Table of Contents
