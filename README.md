@@ -3,13 +3,13 @@
 
 ## Description
 
-This repository contains the front and back end code for a note taking application. It was written using JavaScript as the coding language with Express as the web framework for Node.js. The working code can be visited at https://still-cliffs-01909.herokuapp.com/notes. As a note taking application, this project enables the user to create, retrieve, and delete notes from the server database.
+This repository contains the front and back end code for a note taking application. It was written using JavaScript as the coding language with Express as the web framework for Node.js. The working code can be visited at https://still-cliffs-01909.herokuapp.com/. As a note taking application, this project enables the user to create, retrieve, and delete notes from the server database.
 
 ## Links
 
 [Code repository](https://github.com/wgrout87/Note-Taker)
 
-[Deployed website](https://still-cliffs-01909.herokuapp.com/notes)
+[Deployed website](https://still-cliffs-01909.herokuapp.com/)
 
 ## Table of Contents
 
