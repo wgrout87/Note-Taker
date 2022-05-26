@@ -27,6 +27,7 @@ const hide = (elem) => {
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+// GET fetch request
 const getNotes = () =>
   fetch('/api/notes', {
     method: 'GET',
@@ -35,6 +36,7 @@ const getNotes = () =>
     },
   });
 
+// POST fetch request
 const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
@@ -44,6 +46,7 @@ const saveNote = (note) =>
     body: JSON.stringify(note),
   });
 
+// DELETE fetch request
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
@@ -52,14 +55,18 @@ const deleteNote = (id) =>
     },
   });
 
+// Function for displaying the active note in the right column
 const renderActiveNote = () => {
   hide(saveNoteBtn);
 
+  // If there is an active note (i.e. a note in the left column that was clicked on)
   if (activeNote.id) {
+    // The note will display in the right column, but it cannot be modified
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
+    // If there is no active note, the readonly attribute will be removed from the right column so that it can be edited by entering a new note
   } else {
     noteTitle.removeAttribute('readonly');
     noteText.removeAttribute('readonly');
@@ -68,12 +75,16 @@ const renderActiveNote = () => {
   }
 };
 
+// Handler function for when the save button is pressed
 const handleNoteSave = () => {
+  // Creates an object consisting of the note title and text
   const newNote = {
     title: noteTitle.value,
     text: noteText.value,
   };
+  // Runs a POST fetch request with the note object as a parameter, saving it in the database
   saveNote(newNote).then(() => {
+    // Updates the left and right columns
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -85,19 +96,23 @@ const handleNoteDelete = (e) => {
   e.stopPropagation();
 
   const note = e.target;
+  // Retrieves the note id
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
 
+  // If the deleted note is being displayed, activeNote will be reassigned
   if (activeNote.id === noteId) {
     activeNote = {};
   }
 
+  // Runs a DELETE fetch request with the retrieved note id as the parameter
   deleteNote(noteId).then(() => {
+    // Updates the left and right columns
     getAndRenderNotes();
     renderActiveNote();
   });
 };
 
-// Sets the activeNote and displays it
+// Sets the activeNote (by retrieving it from the data attribute) and displays it
 const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
@@ -179,6 +194,7 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
+  // These event listeners listen for a key release in association with their respective fields. The purpose is to only display the save button if text has been entered into both
   noteTitle.addEventListener('keyup', handleRenderSaveBtn);
   noteText.addEventListener('keyup', handleRenderSaveBtn);
 }
